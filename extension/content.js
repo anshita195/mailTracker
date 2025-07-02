@@ -17,10 +17,10 @@ const observer = new MutationObserver(() => {
     if (body && !body.hasAttribute('data-mailtrack-injected')) {
       body.setAttribute('data-mailtrack-injected', 'true');
       const id = uuidv4();
-      const pixel = `<img src="http://localhost:3000/pixel?id=${id}" width="1" height="1" style="display:none">`;
-      body.innerHTML += pixel;
-      console.log("Injected pixel (on compose open):", pixel);
-      console.log("Body after injection:", body.innerHTML);
+      const pixel = `<img src=\"http://localhost:3000/pixel?id=${id}\" width=\"1\" height=\"1\" style=\"display:none\">`;
+      body.focus();
+      document.execCommand('insertHTML', false, pixel);
+      console.log("Tried to insert pixel with execCommand");
       // Get subject
       const subjectInput = document.querySelector('input[name="subjectbox"]');
       const subject = subjectInput ? subjectInput.value : '';

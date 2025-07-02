@@ -1,0 +1,9 @@
+{
+  "name": "gmail-api-tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^118.0.0"
+  }
+} 
