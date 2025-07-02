@@ -63,7 +63,8 @@ function sendMail(auth) {
   const gmail = google.gmail({ version: 'v1', auth });
 
   const trackingId = 'your-unique-id'; // Replace with a generated UUID if you want
-  const trackingPixel = `<img src="http://localhost:3000/pixel?id=${trackingId}" width="1" height="1" style="display:none">`;
+  // Use your actual Render app URL below
+  const trackingPixel = `<img src="https://mailtracker-3vc0.onrender.com/pixel?id=${trackingId}" width="1" height="1" style="display:none">`;
 
   const raw = makeBody(
     'aashijain3039@gmail.com', // <-- Change this to your recipient
