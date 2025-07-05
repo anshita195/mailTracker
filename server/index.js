@@ -18,8 +18,11 @@ const pixel = Buffer.from(
 app.get('/pixel', (req, res) => {
   const id = req.query.id;
   if (id) {
-    opened[id] = { opened: true, time: new Date().toISOString() };
-    console.log(`Pixel loaded for id: ${id}`);
+    // Only set the open time if it hasn't been set before
+    if (!opened[id]) {
+      opened[id] = { opened: true, time: new Date().toISOString() };
+      console.log(`Pixel loaded for id: ${id}`);
+    }
   }
   res.set('Content-Type', 'image/gif');
   res.send(pixel);
