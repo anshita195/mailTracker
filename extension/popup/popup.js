@@ -1,3 +1,5 @@
+const BACKEND_BASE = "https://mailtracker-3vc0.onrender.com";
+
 function renderEmails(emails) {
   const container = document.getElementById('emails');
   container.innerHTML = '';
@@ -5,7 +7,7 @@ function renderEmails(emails) {
     let status = '<span class="status">&#10003;</span>'; // single check
     let time = '';
     try {
-      const res = await fetch(`http://localhost:3000/status/${email.id}`);
+      const res = await fetch(`${BACKEND_BASE}/status/${email.id}`);
       const data = await res.json();
       if (data.opened) {
         status = '<span class="status" style="color: #2196f3">&#10003;&#10003;</span>'; // double blue check
